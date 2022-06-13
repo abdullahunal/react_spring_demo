@@ -1,0 +1,12 @@
+2022-01-19 13:46:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE[*]"; expected "identifier"; SQL statement:
+delete [42001-200]
+2022-01-19 13:46:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE ALL[*]"; expected "identifier"; SQL statement:
+delete all [42001-200]
+2022-01-19 13:47:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELEECT[*] * FROM"; expected "SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW"; SQL statement:
+seleect * from [42001-200]
+2022-01-19 13:47:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM[*]"; expected "identifier"; SQL statement:
+select * from [42001-200]
