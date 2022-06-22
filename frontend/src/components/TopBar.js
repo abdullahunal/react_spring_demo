@@ -40,7 +40,7 @@ class TopBar extends Component {
                 <nav className="navbar navbar-light container navbar-expand">
                     <Link className="navbar-brand" to="/">
                         <img src={logo} width="60" alt="Logo" />
-                       Restfull Uygulama
+                       React Spring Rest App
                     </Link>
                     {links}
 
