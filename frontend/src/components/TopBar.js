@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import logo from '../assets/hoaxify.png';
 import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
-import { Authentication } from '../shared/AuthenticationContext';
+import { connect } from 'react-redux';
+import { logoutSuccess } from '../redux/authActions'
+// import { Authentication } from '../shared/AuthenticationContext';
 
 class TopBar extends Component {
-    static contextType = Authentication;
+    // static contextType = Authentication;
 
     render() {
-        const { t } = this.props;
-        const { state, onLogoutSuccess } = this.context;
-        const { isLoggedIn, username } = state;
+        const { t, username, isLoggedIn, onLogoutSuccess } = this.props;
+
         let links = (
             <ul className="navbar-nav ml-auto">
                 <li>
@@ -40,7 +41,7 @@ class TopBar extends Component {
                 <nav className="navbar navbar-light container navbar-expand">
                     <Link className="navbar-brand" to="/">
                         <img src={logo} width="60" alt="Logo" />
-                       React Spring Rest App
+                        React Spring Rest App
                     </Link>
                     {links}
 
@@ -49,4 +50,19 @@ class TopBar extends Component {
         );
     }
 }
-export default withTranslation()(TopBar);
+const TopBarWithTranslation = withTranslation()(TopBar);
+
+const mapStateToProps = (store) => {
+    return {
+        isLoggedIn: store.isLoggedIn,
+        username: store.username
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogoutSuccess: () => dispatch(logoutSuccess())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopBarWithTranslation);
